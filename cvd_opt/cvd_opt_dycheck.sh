@@ -30,7 +30,7 @@ evalset=(
   paper-windmill
 )
 
-DATA_DIR=/home/zhengqili/dycheck
+DATA_DIR=/mnt/fast/Dycheck
 
 
 ## Run Raft Optical Flows

@@ -17,35 +17,35 @@
 
 evalset=(
   apple
-  backpack
-  block
-  creeper
-  handwavy
-  haru-sit
-  mochi-high-five
-  pillow
-  spin
-  sriracha-tree
-  teddy
-  paper-windmill
+#  backpack
+#  block
+#  creeper
+#  handwavy
+#  haru-sit
+#  mochi-high-five
+#  pillow
+#  spin
+#  sriracha-tree
+#  teddy
+#  paper-windmill
 )
 
 
-DATA_DIR=/home/zhengqili/dycheck
+DATA_DIR=/mnt/fast/Dycheck
 
 # Run DepthAnything
-for seq in ${evalset[@]}; do
-  CUDA_VISIBLE_DEVICES=0 python Depth-Anything/run_videos.py --encoder vitl \
-  --load-from Depth-Anything/checkpoints/depth_anything_vitl14.pth \
-  --img-path $DATA_DIR/$seq/dense/images \
-  --outdir Depth-Anything/video_visualization/$seq
-done
+# for seq in ${evalset[@]}; do
+#   CUDA_VISIBLE_DEVICES=0 python3 Depth-Anything/run_videos.py --encoder vitl \
+#   --load-from Depth-Anything/checkpoints/depth_anything_vitl14.pth \
+#   --img-path $DATA_DIR/$seq/dense/images \
+#   --outdir Depth-Anything/video_visualization/$seq
+# done
 
 # Run UniDepth
 export PYTHONPATH="${PYTHONPATH}:$(pwd)/UniDepth"
 
 for seq in ${evalset[@]}; do
-  CUDA_VISIBLE_DEVICES=0 python UniDepth/scripts/demo_mega-sam.py \
+  CUDA_VISIBLE_DEVICES=0 python3 UniDepth/scripts/demo_mega-sam.py \
   --scene-name $seq \
   --img-path $DATA_DIR/$seq/dense/images \
   --outdir UniDepth/outputs

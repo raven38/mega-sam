@@ -14,7 +14,7 @@
 # limitations under the License.
 # ==============================================================================
 
-DATA_PATH=/home/zhengqili/dycheck
+DATA_PATH=/mnt/fast/Dycheck
 CKPT_PATH=checkpoints/megasam_final.pth
 
 evalset=(
@@ -40,7 +40,7 @@ for seq in ${evalset[@]}; do
   --scene_name $seq \
   --mono_depth_path $(pwd)/Depth-Anything/video_visualization \
   --metric_depth_path $(pwd)/UniDepth/outputs \
-  --disable_vis $@ #--opt_focal
+  --disable_vis --opt_focal $@ 
 done
 
 

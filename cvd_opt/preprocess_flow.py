@@ -133,6 +133,7 @@ if __name__ == '__main__':
 
   for step in [1, 2, 4, 8, 15]:
     flows_arr_low = []
+
     for i in tqdm.tqdm(range(max(0, -step), img_data.shape[0] - max(0, step))):
       image1 = (
           torch.as_tensor(np.ascontiguousarray(img_data[i : i + 1]))
